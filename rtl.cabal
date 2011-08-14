@@ -1,0 +1,38 @@
+name:    rtl
+version: 0.0.0
+
+category: Language, Hardware
+
+synopsis: A synchronous RTL programming language for logic design.
+
+description:
+  TODO
+
+author:     Tom Hawkins <tomahawkins@gmail.com>
+maintainer: Tom Hawkins <tomahawkins@gmail.com>
+
+license:      BSD3
+license-file: LICENSE
+
+build-type:    Simple
+cabal-version: >= 1.6
+
+library
+    build-depends:
+        base      >= 4.0     && < 5,
+        mtl       >= 1.1.0.1 && < 2.1,
+        yices     >= 0.0.0.7 && < 0.0.1
+
+    exposed-modules:
+        Language.RTL
+        Language.RTL.Code
+        Language.RTL.Core
+
+    extensions: GADTs, FlexibleInstances
+
+    ghc-options: -W
+
+source-repository head
+    type:     git
+    location: git://github.com/tomahawkins/rtl.git
+
