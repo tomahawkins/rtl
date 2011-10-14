@@ -53,6 +53,8 @@ module Language.RTL
 
 import Control.Monad
 import Data.Bits
+import Data.Function
+import Data.List
 
 import Language.RTL.Core
 import Language.RTL.Code
@@ -309,7 +311,7 @@ instance Monad RTL where
       RTL f4 = f2 a
 
 evalRTL :: RTL () -> Module
-evalRTL (RTL f) = m
+evalRTL (RTL f) = m { outputs = sortBy (compare `on` fst) $ outputs m }
   where
   ((), (_, _, m)) = f (0, [], Module [] [] [])
 
